@@ -1,0 +1,10 @@
+{
+  "name": "Orkut",
+  "short_name": "Orkut",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#08070b",
+  "theme_color": "#09060d",
+  "orientation": "any",
+  "description": "Orkut — vídeos, perfis e comunidades do seu jeito."
+}
