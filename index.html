@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09060d">
+<meta name="description" content="Orkut — vídeos, perfis e comunidades do seu jeito.">
+<link rel="manifest" href="manifest.json">
+<title>Orkut</title>
+<style>
+:root{--accent:#ff2f92;--accent2:#7b3cff;--bg:#08070b;--card:#14121a;--text:#fff;--muted:#aaa}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#000;color:var(--text);font-family:Arial,sans-serif}
+body{overflow:hidden}.app{height:100dvh;max-width:520px;margin:auto;background:var(--bg);position:relative}
+header{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;position:absolute;top:0;left:0;right:0;z-index:5;background:linear-gradient(#000b,transparent)}
+.logo{font-size:22px;font-weight:800}.fire{font-size:24px}.feed{height:100%;overflow-y:auto;scroll-snap-type:y mandatory}
+.post{height:100dvh;min-height:520px;position:relative;scroll-snap-align:start;overflow:hidden;background:linear-gradient(150deg,#251044,#071727 60%,#000)}
+.demo{position:absolute;inset:0;display:grid;place-items:center;font-size:52px;font-weight:800;background:radial-gradient(circle at 70% 25%,#ff2f9240,transparent 28%),linear-gradient(135deg,#1d1031,#071827)}
+.demo small{display:block;text-align:center;font-size:15px;color:#ddd;margin-top:10px;font-weight:400}
+.info{position:absolute;left:16px;right:82px;bottom:78px;text-shadow:0 2px 6px #000}.user{font-weight:800;font-size:17px;margin-bottom:8px}.desc{line-height:1.35;font-size:15px}
+.actions{position:absolute;right:12px;bottom:82px;display:flex;flex-direction:column;align-items:center;gap:7px}.act{border:0;background:none;color:#fff;font-size:29px;cursor:pointer}.num{font-size:11px;margin-bottom:7px}
+.liked{color:var(--accent)}.nav{height:62px;position:absolute;bottom:0;left:0;right:0;background:#09070deF;display:flex;justify-content:space-around;align-items:center;z-index:8;border-top:1px solid #ffffff12}.nav button{background:none;border:0;color:#aaa;font-size:11px}.nav b{display:block;color:#fff;font-size:21px;margin-bottom:2px}.nav .active{color:#fff}
+.sheet{display:none;position:absolute;z-index:20;inset:0;background:#000b;align-items:flex-end}.panel{background:var(--card);width:100%;border-radius:22px 22px 0 0;padding:20px 18px 85px}.panel h2{margin:0 0 16px}.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.theme{border:1px solid #ffffff18;background:#211e29;color:#fff;padding:12px;border-radius:14px}.dot{width:25px;height:25px;border-radius:50%;margin-bottom:7px}
+.profile{display:none;position:absolute;inset:0;background:var(--bg);z-index:15;overflow:auto;padding-bottom:70px}.banner{height:180px;background:linear-gradient(135deg,#7b3cff,#ff2f92)}.profileBox{text-align:center;margin-top:-45px}.avatar{width:90px;height:90px;border-radius:50%;border:4px solid var(--bg);display:inline-grid;place-items:center;background:#17131e;font-size:40px}.profile h2{margin:8px 0 4px}.bio{color:var(--muted);font-size:14px}.edit{margin:15px auto;padding:10px 18px;border-radius:12px;border:0;background:#25212d;color:#fff}.back{position:absolute;top:15px;left:15px;background:#0008;color:#fff;border:0;border-radius:20px;padding:8px 12px}
+@media(orientation:landscape){.post{height:100dvh}.demo{font-size:40px}.info{bottom:72px}.actions{bottom:70px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="logo">Orkut</div><button class="act" id="openTheme">🎨</button></header>
+<main class="feed">
+<section class="post"><div class="demo"><div>🔥<small>Seu mundo, do seu jeito.</small></div></div><div class="info"><div class="user">@orkut</div><div class="desc">Bem-vindo ao novo Orkut! Personalize seu perfil e escolha suas reações. ✨</div></div><div class="actions"><button class="act like">🔥</button><span class="num">12,4 mil</span><button class="act">💬</button><span class="num">342</span><button class="act share">↗</button><span class="num">1,2 mil</span></div></section>
+<section class="post"><div class="demo"><div>🌌<small>Assista na vertical ou horizontal.</small></div></div><div class="info"><div class="user">@criador</div><div class="desc">Gire o celular e aproveite o vídeo em tela cheia. 📱</div></div><div class="actions"><button class="act like">❤️</button><span class="num">8,7 mil</span><button class="act">💬</button><span class="num">120</span><button class="act share">↗</button><span class="num">520</span></div></section>
+</main>
+<nav class="nav"><button class="active"><b>⌂</b>Início</button><button><b>⌕</b>Descobrir</button><button><b>＋</b>Criar</button><button id="profileBtn"><b>◉</b>Perfil</button></nav>
+<div class="sheet" id="sheet"><div class="panel"><h2>Personalizar Orkut</h2><div class="themes">
+<button class="theme" data-a="#25d366"><div class="dot" style="background:#25d366"></div>WhatsApp</button>
+<button class="theme" data-a="#ff2f92"><div class="dot" style="background:#ff2f92"></div>Rosa Neon</button>
+<button class="theme" data-a="#7b3cff"><div class="dot" style="background:#7b3cff"></div>Roxo</button>
+<button class="theme" data-a="#168cff"><div class="dot" style="background:#168cff"></div>Azul</button>
+<button class="theme" data-a="#ff5a36"><div class="dot" style="background:#ff5a36"></div>Fogo</button>
+<button class="theme" data-a="#ffd21f"><div class="dot" style="background:#ffd21f"></div>Amarelo</button>
+</div><button class="edit" id="closeTheme">Fechar</button></div></div>
+<div class="profile" id="profile"><button class="back" id="back">← Voltar</button><div class="banner"></div><div class="profileBox"><div class="avatar">🔥</div><h2>Orkut</h2><div class="bio">@orkut · Seu mundo, do seu jeito.</div><button class="edit">✏️ Editar perfil</button><h3>Publicações</h3></div></div>
+</div>
+<script>
+const root=document.documentElement;
+document.querySelectorAll('.like').forEach(b=>b.onclick=()=>b.classList.toggle('liked'));
+document.querySelectorAll('.theme').forEach(b=>b.onclick=()=>{root.style.setProperty('--accent',b.dataset.a);localStorage.setItem('orkutAccent',b.dataset.a)});
+const saved=localStorage.getItem('orkutAccent');if(saved)root.style.setProperty('--accent',saved);
+openTheme.onclick=()=>sheet.style.display='flex';closeTheme.onclick=()=>sheet.style.display='none';sheet.onclick=e=>{if(e.target===sheet)sheet.style.display='none'};
+profileBtn.onclick=()=>profile.style.display='block';back.onclick=()=>profile.style.display='none';
+document.querySelectorAll('.share').forEach(b=>b.onclick=async()=>{if(navigator.share)await navigator.share({title:'Orkut',text:'Confira este vídeo no Orkut!'});else alert('Use o menu do navegador para compartilhar.')});
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script>
+</body></html>
